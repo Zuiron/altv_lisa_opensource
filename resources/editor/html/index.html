@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+    <link rel="stylesheet" data-name="vs/editor/editor.main" href="monaco-editor/min/vs/editor/editor.main.css">
+    <link rel="stylesheet" data-name="editor" href="editor.css">
+  </head>
+
+  <body>
+    <div id="main-container" class="notVisible">
+
+    <div id="tabs">
+      <div class="tab active" onclick="switchTab(this,'client')">Client</div>
+      <div class="tab" onclick="switchTab(this,'server')">Server</div>
+      <img class="alt-logo" src="https://altv.mp/img/v_logo.svg">
+    </div>
+
+    <div id="container" style="height:600px;border:1px solid grey"></div>
+      <div id="footer">
+        <div class="button" onclick="execute()">Execute</div>
+        <div id="errors" class="hidden"></div>
+        <div id="success" class="hidden"></div>
+      </div>
+    </div>
+
+    <script>var require = { paths: { 'vs': 'monaco-editor/min/vs' } };</script>
+    <script src="monaco-editor/min/vs/loader.js"></script>
+    <script src="monaco-editor/min/vs/editor/editor.main.nls.js"></script>
+    <script src="monaco-editor/min/vs/editor/editor.main.js"></script>
+
+    <script src="index.js"></script>
+    
+  </body>
+</html>

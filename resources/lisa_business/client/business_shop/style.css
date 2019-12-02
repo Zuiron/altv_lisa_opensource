@@ -1,0 +1,78 @@
+@font-face {
+    font-family: 'SignPainterHouseScriptRegular';
+    src: url('./SignPainterHouseScriptRegular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+@font-face {
+    font-family: 'ChaletNewYorkRegular';
+    src: url('./ChaletNewYorkRegular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+@font-face {
+    font-family: 'ChaletLondonNineteenSixty';
+    src: url('./ChaletLondonNineteenSixty.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+html, body {
+    height: 100%;
+    /*needs more work on cursor...*/
+    /*cursor: url("mousepointer.png"), auto;*/
+    
+    -webkit-touch-callout: none; 
+    -webkit-user-select: none; 
+     -khtml-user-select: none; 
+       -moz-user-select: none; 
+        -ms-user-select: none; 
+            user-select: none;
+            
+    background-color: transparent;
+    font-family: 'ChaletLondonNineteenSixty';
+    color: #FFF;
+    font-size: 14px;
+}
+
+#body {
+    color: #000;
+    visibility: hidden;
+    opacity: 0.0;
+    transition: 1s;
+}
+
+#itemshoptitle {
+    font-family: 'SignPainterHouseScriptRegular';
+    position: absolute;
+    top: -30px;
+    left: 10px;
+    font-size: 40px;
+}
+.desctext {
+    font-size: 12px;
+}
+
+#itemlist {
+    margin-top:20px;
+}
+
+.shopmenubg {
+    background-color: #000000c4;
+    color: #FFF;
+}
+
+.item {
+    display: inline-block;
+}
+
+.item img {
+    height: 60px;
+}
+
+#itemlist {
+    max-height: 600px;
+    overflow: auto;
+}
+
+#itemlist {
+    -ms-overflow-style: none;  /* IE 10+ */
+    scrollbar-width: none;  /* Firefox */
+}
+#itemlist::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
+}

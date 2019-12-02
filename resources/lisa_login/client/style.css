@@ -1,0 +1,265 @@
+@font-face {
+    font-family: 'SignPainterHouseScriptRegular';
+    src: url('./SignPainterHouseScriptRegular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+@font-face {
+    font-family: 'ChaletNewYorkRegular';
+    src: url('./ChaletNewYorkRegular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+@font-face {
+    font-family: 'ChaletLondonNineteenSixty';
+    src: url('./ChaletLondonNineteenSixty.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+html, body {
+    height: 100%;
+    /*needs more work on cursor...*/
+    /*cursor: url("mousepointer.png"), auto;*/
+    
+    -webkit-touch-callout: none; 
+    -webkit-user-select: none; 
+     -khtml-user-select: none; 
+       -moz-user-select: none; 
+        -ms-user-select: none; 
+            user-select: none;
+            
+    background-color: transparent;
+    font-family: 'ChaletLondonNineteenSixty';
+}
+
+#body {
+    visibility: visible; /* default hidden */
+    /*
+    background: url('./bg.png');
+    background-size: cover;
+    background-color: red;
+    */
+}
+
+a {
+    color: #00C7FF;
+}
+
+a:hover {
+    color: #41D5FF;
+}
+
+.container{
+height: 100%;
+align-content: center;
+}
+
+.card{
+/*height: 370px;*/
+height: auto;
+margin-top: auto;
+margin-bottom: auto;
+width: 400px;
+background-color: rgba(0,0,0,0.5) !important;
+}
+
+.social_icon span{
+font-size: 60px;
+margin-left: 10px;
+color: #00C7FF;
+}
+
+.social_icon span:hover{
+color: white;
+cursor: pointer;
+}
+
+.card-header h3{
+    color: #fff;
+    font-family: 'SignPainterHouseScriptRegular';
+    font-size: 60px;
+    font-weight: bold;
+    position: absolute;
+    top: -32px;
+    left: 6px;
+    text-shadow: 1px 1px 1px #000;
+}
+
+.social_icon{
+position: absolute;
+right: 20px;
+top: -45px;
+}
+
+.input-group-prepend span{
+width: 50px;
+background-color: #00C7FF;
+color: black;
+border:0 !important;
+}
+
+input:focus{
+outline: 0 0 0 0  !important;
+box-shadow: 0 0 0 0 !important;
+
+}
+
+.remember{
+color: white;
+}
+
+.remember input
+{
+width: 20px;
+height: 20px;
+margin-left: 15px;
+margin-right: 5px;
+}
+
+.login_btn{
+color: black;
+background-color: #00C7FF;
+width: 100px;
+}
+
+.login_btn:hover{
+color: black;
+/*background-color: #FFDB00;*/
+box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+cursor: pointer;
+}
+
+.back_btn{
+color: #FFF;
+background-color: #8f8f8f;
+width: 100px;
+}
+
+.back_btn:hover{
+color: #FFF;
+background-color: #595959;
+cursor: pointer;
+}
+
+.links{
+color: white;
+}
+
+.links a{
+margin-left: 4px;
+}
+
+#login_messages {
+    color: red;
+    text-shadow: 0px 0px 4px #000;
+    font-size: 11px;
+}
+
+#charSelect {
+    display: none;
+    visibility: hidden;
+    opacity: 0.0;
+    transition: 1s;
+    margin-left: 0px;
+}
+
+#createAccount {
+    display: none;
+    visibility: hidden;
+    opacity: 0.0;
+    transition: 1s;
+}
+
+.hoveroncharid:hover span {
+    background-color: #00C7FF;
+}
+
+label {
+    color: #FFF;
+}
+
+.botleft {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+}
+
+.botright {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+.register_warn_msgs {
+    color: #e1d700;
+    font-size: 11px;
+    text-align: center;
+}
+
+#register_error_msgs {
+    color: red;
+    text-shadow: 0px 0px 4px #000;
+    font-size: 14px;
+
+    text-align: center;
+}
+
+#createCharlink {
+    color: #00C7FF;
+}
+#createCharlink:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#character_creator_module {
+    display: none;
+    visibility: hidden;
+    opacity: 0.0;
+    transition: 1s;
+    height: inherit;
+}
+
+#characterCreator {
+    margin-left: 0px;
+    padding-top: 30px;
+    padding-bottom: 10px;
+}
+
+.fixcard {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+#charNameBox {
+    position: fixed;
+    bottom: 10px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    width: fit-content;
+}
+
+.lisa_drop_btn {
+    width: 100%;
+}
+
+.lisa_drop {
+    height: 48px;
+    overflow: hidden;
+
+    
+    padding: 5px;
+}
+
+.lisa_drop.active {
+    height: auto;
+    overflow: auto;
+}
+.lisa_drop.active i.fa-chevron-up::before {
+    content: "\f078";
+}
+
+.noscroll {
+    -ms-overflow-style: none;  /* IE 10+ */
+    scrollbar-width: none;  /* Firefox */
+    overflow: scroll;
+}
+.noscroll::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
+}

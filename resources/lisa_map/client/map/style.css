@@ -1,0 +1,115 @@
+html {		
+    height: 100%;	
+}
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0px;	
+}
+#body {
+    visibility: hidden;	
+    opacity: 0.0;
+    /*transition: .5s;*/
+}
+html, body {
+-webkit-touch-callout: none; 
+-webkit-user-select: none; 
+ -khtml-user-select: none; 
+   -moz-user-select: none; 
+    -ms-user-select: none; 
+        user-select: none;
+    background-color: transparent !important;
+}
+::-webkit-scrollbar {
+    display: none;
+}
+.smooth_zoom_preloader {
+    background-image: url(zoom_assets/preloader.gif);
+}	
+.smooth_zoom_icons {
+    background-image: url(zoom_assets/icons.png);
+}
+#zoom_container {
+    background-color: transparent !important;
+}
+#zoom_container .landmarks{
+    position:absolute;
+    z-index:10;	
+    top:0px;
+    left:0px;
+    font-family: Helvetica, Arial, Verdana;
+    font-size:12px;
+    color: #ffffff;
+}	
+#zoom_container .landmarks .item {
+    position:absolute;		
+    text-align:center;		
+    display: none;	
+}	
+#zoom_container .landmarks .lable div {
+    width: 100px;
+    padding: 4px;		
+}	
+#zoom_container .landmarks .mark .text{
+    background-color:#000000;
+    padding:2px 6px;
+}
+
+.playermarker {
+    opacity: 1.0 !important;
+    transition: 0s !important;
+}
+
+#maptype{
+    position: absolute;
+    top: 30px;
+    left: 40px;
+    z-index: 100;
+}
+
+#maptype ul {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+#maptype ul li {
+    padding: 5px;
+    background-color: #0000008f;
+    color: #FFF;
+    border-radius: 3px;
+    margin-bottom: 5px;
+}
+
+#maptype ul li:hover {
+    background-color: #000000c4;
+}
+
+
+.marker_info {
+    visibility: hidden;
+    /*display: none;*/
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    z-index: 999 !important;
+    width: max-content;
+    max-width: 250px;
+    transform-origin: center;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.markerblip:hover .marker_info {
+    visibility: visible;
+    /*display: block;*/
+    z-index: 999 !important;
+}
+.bringmetofrontbro:hover {
+    z-index: 999 !important;
+}
+
+#yourImageID {
+    image-rendering: optimizeSpeed;
+    image-rendering: pixelated;
+}

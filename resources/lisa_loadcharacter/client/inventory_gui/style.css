@@ -1,0 +1,474 @@
+@font-face {
+    font-family: 'SignPainterHouseScriptRegular';
+    src: url('./SignPainterHouseScriptRegular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+@font-face {
+    font-family: 'ChaletNewYorkRegular';
+    src: url('./ChaletNewYorkRegular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+@font-face {
+    font-family: 'ChaletLondonNineteenSixty';
+    src: url('./ChaletLondonNineteenSixty.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+html, body {
+    height: 100%;
+    /*needs more work on cursor...*/
+    /*cursor: url("mousepointer.png"), auto;*/
+    
+    -webkit-touch-callout: none; 
+    -webkit-user-select: none; 
+     -khtml-user-select: none; 
+       -moz-user-select: none; 
+        -ms-user-select: none; 
+            user-select: none;
+            
+    background-color: transparent;
+    font-family: 'ChaletLondonNineteenSixty';
+}
+
+#body {
+    display: block; /*default: none*/
+/*
+    background-image: url("./bg.jpg");
+    background-size: cover;
+    */
+}
+
+
+
+#inventory-container {
+    width: 80%;
+    height: 80%;
+
+    position: relative;
+    top: 5%;
+
+    /*debugging*/
+    /*background-color:aqua;*/
+}
+
+/*debugging*/
+/*
+.col-sm {
+    border: 1px;
+    border-style: dashed;
+    border-color: red;
+}
+*/
+
+.inventorybox {
+    background-color: #0006;
+    color: #FFF;
+    min-height: 100%;
+    position: relative;
+    height: 100%;
+    padding-left: 0.2rem;
+}
+
+.lisa-short {
+    min-height: 35%;
+    margin-bottom: 3%;
+}
+
+.lisa-extrashort {
+    min-height: 10%;
+    margin-bottom: 3%;
+}
+
+.lisa-semilong {
+    min-height: 65%;
+}
+
+
+.itemlistcontainer {
+    /*text-align: center;*/
+    /*padding-top: 10%;*/
+    margin: 0 auto;
+    overflow: auto;
+    position: absolute;
+    width: 100%;
+
+    width: 100%;
+    width: -moz-available;          /* For Mozzila */
+    width: -webkit-fill-available;  /* For Chrome */
+    width: stretch;                 /* Unprefixed */
+/*
+    max-height: 90%;
+    height: 90%; */
+}
+
+.itemlist-long {
+    max-height: 90%;
+    height: 90%;
+    min-height: 90%;
+}
+
+.itemlist-short {
+    max-height: 85%;
+    height: 85%;
+    min-height: 85%;
+}
+
+.itemlistcontainer {
+    -ms-overflow-style: none;  /* IE 10+ */
+    scrollbar-width: none;  /* Firefox */
+}
+.itemlistcontainer::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
+}
+
+.item-container {
+    background-color: #0000005e;
+    width: 48%;
+    display: inline-block;
+    text-align: left;
+    font-size: 12px;
+    position: relative;
+    
+    margin-left: 3px;
+    margin-right: 3px;
+    margin-bottom: 5px;
+
+    /*transition: 0.8s;*/
+}
+.item-container:hover {
+    /*box-shadow: 0 0 10px 1px #ffdb00, 0 0 5px 1px #fff, 0 0 20px 3px #000;*/
+    background-color: #0009 !important;
+    box-shadow: inset 0px 0px 0px 1px #00C7FF;
+    /*transition: 0.0s;*/
+}
+/*
+.item-container:hover .item_hoverview {
+
+.item_icon:hover .item_hoverview {
+    visibility: visible;
+    z-index: 2;
+    opacity: 1;
+    box-shadow: 0 0 10px 1px #ffdb00, 0 0 5px 1px #fff, 0 0 20px 3px #000;
+    transition: 0.3s;
+}
+
+.item_hoverview {
+    position: absolute;
+    visibility: hidden;
+    pointer-events: none;
+    right: 0;
+    top: -70;
+    background-color: black;
+    width: 100%;
+    height: 100%;
+
+    opacity: 0;
+    transition: 0s;
+}
+*/
+
+.boxtitle {
+    position: relative;
+    z-index: 1;
+    pointer-events: none; /* need this to allow dropping items thrue the div */
+    font-family: 'SignPainterHouseScriptRegular' !important;
+    font-size: 35px;
+    margin-left: 10px;
+}
+.charinvensorting {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.item_icon {
+    display: inline;
+}
+
+.item_icon img {
+    height: 60px;
+}
+
+.item_name {
+    display: inline;
+    font-weight: bold;
+}
+
+.item_desc {
+    display: inline;
+    color: #B7B7B7;
+}
+
+.namedesc-container {
+    position: absolute;
+    display: inline;
+    margin-left: 5px;
+    overflow: hidden;
+    max-height: 100%;
+}
+
+.progress {
+    height: 5px;
+    width: 50px;
+
+    background-color: #ffffff;
+    border-radius: 1px;
+}
+
+.progress-container {
+    position: absolute;
+    bottom: 2px;
+    left: 5px;
+}
+
+.progress-lisa {
+    background-color: #000 !important;
+    border: 1px solid;
+    border-color: #ffffff;
+}
+
+
+
+
+
+
+/*
+
+custom context menu
+
+https://dev.to/iamafro/how-to-create-a-custom-context-menu--5d7p
+https://codepen.io/Iamafro/pen/bLqyGd
+
+*/
+
+.menu {
+    width: 120px;
+    z-index: 3;
+    box-shadow: 0 4px 5px 3px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    display: none;
+    /*transition: 0.2s display ease-in;*/
+    background-color: #0009;
+    color: #FFF;
+  }
+  .menu .menu-options {
+    list-style: none;
+    padding: 10px 0;
+    z-index: 3;
+  }
+  .menu .menu-options .menu-option {
+    font-weight: 500;
+    z-index: 3;
+    font-size: 14px;
+    padding: 10px 40px 10px 20px;
+    cursor: pointer;
+  }
+  .menu .menu-options .menu-option:hover {
+    background: rgba(0, 0, 0, 0.2);
+  }
+  button {
+    background: grey;
+    border: none;
+  }
+  button .next {
+    color: green;
+  }
+  button[disabled="false"]:hover .next {
+    color: red;
+    animation: move 0.5s;
+    animation-iteration-count: 2;
+  }
+  @keyframes move {
+    from {
+      transform: translate(0%);
+    }
+    50% {
+      transform: translate(-40%);
+    }
+    to {
+      transform: transform(0%);
+    }
+  }
+  
+
+
+  .arrows {
+        font-size: 40px;
+        margin: 0px;
+  }
+  .charequipanetitle {
+        font-family: 'SignPainterHouseScriptRegular' !important;
+        font-size: 35px;
+  }
+  .charequipaneicons i {
+        font-size: 20px;
+  }
+
+    .charequipaneicons .material-icons { 
+        color: #737373; 
+    }
+    .charequipaneicons .material-icons.active {
+        color: #FFF;
+    }
+
+  .padtop {
+        padding-top: 5px;
+  }
+
+  .eqitemdroparea-left {
+    min-height: 56px;
+    background-color: #0000005e;
+    border-radius: 2px;
+
+    margin-left: 14px;
+    margin-right: 66px;
+
+    padding-top: 6px;
+    padding-left: 2px;
+    padding-right: 2px;
+  }
+
+  .eqitemdroparea-right {
+    min-height: 56px;
+    background-color: #0000005e;
+    border-radius: 2px;
+
+    margin-left: 66px;
+    margin-right: 14px;
+
+    padding-top: 6px;
+    padding-left: 2px;
+    padding-right: 2px;
+  }
+
+  .eqitemdroparea-center {
+    min-height: 56px;
+    background-color: #0000005e;
+    border-radius: 2px;
+
+    margin-left: 40px;
+    margin-right: 40px;
+
+    padding-top: 6px;
+    padding-left: 2px;
+    padding-right: 2px;
+  }
+
+  .eqicon .item-container {
+        width: auto !important;
+        overflow: hidden;
+        margin-bottom: 0px;
+  }
+
+  #moduleCharacterEquipment .row .col-sm .inventorybox .row .text-left .eqslotname {
+      padding-left: 15px;
+      font-size: 13px;
+  }
+  #moduleCharacterEquipment .row .col-sm .inventorybox .row .text-right .eqslotname {
+    padding-right: 15px;
+    font-size: 13px;
+  }
+  #moduleCharacterEquipment .row .col-sm .inventorybox .row .text-center .eqslotname {
+    font-size: 13px;
+  }
+
+
+  #tooltiplisa {
+      position: fixed;
+      top: 50px;
+      left: 50px;
+      background-color: #0009;
+      padding: 10px;
+      color: #FFF;
+      z-index: 100;
+      visibility: hidden;
+      font-size: 13px;
+      max-width: 220px;
+      min-width: 220px;
+  }
+
+.bottom_inven_info {
+    background-color: #0000005e;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    height: 70px;
+}
+
+.invinfo_weightbar {
+    position: absolute;
+    width: 100%;
+    bottom: 0px;
+    left: 0px;
+    background-color: #ffb34b6e;
+    border: 1px solid #000;
+    height: 10px;
+}
+
+.weightbar_text {
+    position: absolute;
+    left: 1px;
+    bottom: 7px;
+    color: #FFF;
+    font-size: 11px;
+}
+
+.invinfo_moneyother_container div {
+    display: inline-block;
+    padding: 6px 10px 6px 10px;
+    margin: 6px -6px 6px 6px;
+    background-color: #00000026;
+}
+
+#weightbar {
+    background-color: #ffb34b;
+    height: 100%;
+}
+
+.invinfo_trashcan {
+    position: absolute;
+    right: 0px;
+    top: 5px;
+    background-color: #00000026;
+    height: 50px;
+    font-size: 33px;
+    margin: 0px 5px 10px 10px;
+    padding: 0px 10px 10px 10px;
+    color: #FF1A00;
+}
+
+
+  @media (min-width: 1920px) and (max-height: 1080px) {
+    .inventorybox {
+        padding-left: 0.05rem;
+    }
+    .lisa-semilong {
+        min-height: 65.3%;
+    }
+
+    .itemlist-long {
+        max-height: 440px;
+        min-height: 440px;
+    }
+
+    .progress-container {
+        left: 2px;
+    }
+    .progress {
+        width: 45px;
+    }
+
+    .item_icon img {
+        height: 49.9px;
+    }
+    .item_name {
+        padding-right: 1px;
+        font-size: 11px;
+    }
+    .item_desc {
+        padding-right: 1px;
+        font-size: 10px;
+    }
+  }
+
+  @media (min-width: 2560px) and (max-height: 1440px) {
+    /*not empty*/
+  }

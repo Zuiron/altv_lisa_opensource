@@ -1,0 +1,153 @@
+  html, body {
+  -webkit-touch-callout: none; 
+  -webkit-user-select: none; 
+    -khtml-user-select: none; 
+      -moz-user-select: none; 
+      -ms-user-select: none; 
+          user-select: none;
+      background-color: transparent !important;
+  }
+  ::-webkit-scrollbar {
+      display: none;
+  }
+
+  @keyframes loader {
+    0% {
+      width: 0;
+    }
+    20% {
+      width: 10%;
+    }
+    25% {
+      width: 24%;
+    }
+    43% {
+      width: 41%;
+    }
+    56% {
+      width: 50%;
+    }
+    66% {
+      width: 52%;
+    }
+    71% {
+      width: 60%;
+    }
+    75% {
+      width: 76%;
+    }
+    94% {
+      width: 86%;
+    }
+    100% {
+      width: 100%;
+    }
+  }
+
+  @keyframes cooldownsmooth {
+    0% {
+      width: 100%;
+    }
+    100% {
+      width: 0;
+    }
+  }
+
+  @keyframes loadersmooth {
+    0% {
+      width: 0%;
+    }
+    100% {
+      width: 100%;
+    }
+  }
+
+  @keyframes loaderinverse {
+    0% {
+      width: 100%;
+    }
+    20% {
+      width: 86%;
+    }
+    25% {
+      width: 76%;
+    }
+    43% {
+      width: 60%;
+    }
+    56% {
+      width: 52%;
+    }
+    66% {
+      width: 50%;
+    }
+    71% {
+      width: 41%;
+    }
+    75% {
+      width: 24%;
+    }
+    94% {
+      width: 10%;
+    }
+    100% {
+      width: 0%;
+    }
+  }
+
+  .progress-bar {
+    border-radius: 2px;
+    /*overflow: hidden;*/
+    width: 100%;
+  }
+  .progress-bar span {
+    display: block;
+  }
+  .bar {
+    background: rgba(0, 0, 0, 0.60);
+  }
+  .progress {
+    /*animation: cooldownsmooth 8s ease;*/
+    background: #ffb34b;
+    color: #fff;
+    /*padding: 5px;*/
+    height: 10px;
+    width: 0;
+  }
+  .anim-cdsmooth {
+    animation: cooldownsmooth linear;
+    animation-duration: 999s;
+  }
+  .anim-ldsmooth {
+    animation: loadersmooth 999s linear;
+    animation-fill-mode: forwards;
+  }
+  .progress-bar {
+    left: 50%;
+    max-width: 30%;
+    position: absolute;
+    bottom: 60px;
+    transform: translate3d(-50%, -50%, 0);
+  }
+  
+  .progress-text {
+    position: relative;
+    padding: 5px;
+    font-size: 20px;
+    font-family: monospace;
+    font-weight: bold;
+    color: white;
+    text-shadow: 3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  }
+
+  .progress-icon {
+    position: absolute;
+    right: 0px;
+    top: -22px;
+    background-color: rgba(0, 0, 0, 0.60);
+  }
+
+  #leprugress {
+    opacity: 1.0;
+    transition: .5s;
+  }

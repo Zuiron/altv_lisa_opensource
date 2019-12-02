@@ -1,0 +1,47 @@
+@font-face {
+  font-family: 'MuseoSans_900-webfont';
+  src: url('./fonts/MuseoSans_900-webfont.woff2') format('woff2'),
+  url('./fonts/museosans_900-webfont.woff') format('woff')
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  cursor: default;
+  -webkit-font-smoothing: antialiased;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+}
+
+*:focus {
+  outline: 0;
+}
+body {
+  font-family: 'MuseoSans_900-webfont', 'Segoe UI', Arial;
+  font-size: 14px;
+}
+
+* {
+  font-family: 'MuseoSans_900-webfont', 'Segoe UI', Arial;
+}
+
+.fontLoad {
+  font-family: 'MuseoSans_900-webfont', 'Segoe UI', Arial;
+  font-size: 0;
+  position: absolute;
+  visibility: hidden;
+}
+.hidden {
+  display: none;
+}
+.show {
+  display: block;
+}
+
+#canvas {
+  bottom: 3.3%;
+  right: 7%;
+  position: absolute;
+  height: 400px;
+  overflow: hidden;
+}

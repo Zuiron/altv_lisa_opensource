@@ -1,0 +1,25 @@
+{
+  "name": "lisa-srv",
+  "version": "1.0.0",
+  "description": "altV life in san andreas server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zuiron/LISA-srv.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Zuiron/LISA-srv/issues"
+  },
+  "homepage": "https://github.com/Zuiron/LISA-srv#readme",
+  "dependencies": {
+    "howler": "^2.1.2",
+    "mysql": "^2.17.1",
+    "node-fetch": "^2.6.0",
+    "sjcl": "^1.0.8"
+  }
+}

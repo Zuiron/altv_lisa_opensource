@@ -1,0 +1,495 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>LifeInSanAndreas login GUI</title>
+  <meta name="description" content="LifeInSanAndreas Inventory GUI">
+  <meta name="author" content="Zuiron @ lifeinsanandreas.com">
+
+  <script src="http://assets/lisa-assets/assets/fontawesome/js/all.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <!--BOOTSTRAP-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+  
+
+  <link rel="stylesheet" href="./style.css?v=1.0">
+</head>
+
+<body id="body">
+
+        <div id="loginWindow" class="container">
+            <div class="d-flex justify-content-center h-100">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Sign In</h3>
+                        <!--<div class="d-flex justify-content-end social_icon">
+                            <span><i class="fab fa-facebook-square"></i></span>
+                            <span><i class="fab fa-google-plus-square"></i></span>
+                            <span><i class="fab fa-twitter-square"></i></span>
+                        </div>-->
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <div class="input-group form-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                </div>
+                                <input id="username" type="text" class="form-control" placeholder="username" required>
+                                
+                            </div>
+                            <div class="input-group form-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                </div>
+                                <input id="password" type="password" class="form-control" placeholder="password" required>
+                            </div>
+                            <div class="row align-items-center remember">
+                                <input id="rememberme" type="checkbox">Remember Me
+                            </div>
+                            <div class="form-group">
+                                <input id="loginbtn" type="submit" value="Login" class="btn float-right login_btn" onclick="login()">
+                            </div>
+                            <div id="login_messages" class="row align-items-center">
+                                <!--No accounts with this username and password.-->
+                            </div>
+                        </form>
+                    </div>
+                    <div class="card-footer">
+                        <div class="d-flex justify-content-center links">
+                            Don't have an account?<a id="signup" href="" onclick="createAccount()">Sign Up</a>
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            <a id="forgotpw" href="#" onclick="forgotPassword()">Forgot your password?</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div id="charSelect" class="container">
+            <div class="d-flex justify-content-center h-100">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Select Character</h3>
+                        <!--<div class="d-flex justify-content-end social_icon">
+                            <span><i class="fab fa-facebook-square"></i></span>
+                            <span><i class="fab fa-google-plus-square"></i></span>
+                            <span><i class="fab fa-twitter-square"></i></span>
+                        </div>-->
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <div id="characters_list"><!--
+                                <div class="input-group form-group">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text"><i class="fas fa-portrait"></i></span>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="Character Firstname Lastname" disabled>
+                                    <div class="input-group-append">
+                                        <span class="input-group-text" onclick="loginCharacter(0)"><i class="fas fa-sign-in-alt"></i></span>
+                                    </div>
+                                </div>
+                                <div class="input-group form-group">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text"><i class="fas fa-portrait"></i></span>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="Character Firstname Lastname" disabled>
+                                    <div class="input-group-append">
+                                        <span class="input-group-text" onclick="loginCharacter(0)"><i class="fas fa-sign-in-alt"></i></span>
+                                    </div>
+                                </div>-->
+
+                            </div>
+
+                            <div id="enter_messages" class="row align-items-center">
+                                <!--No accounts with this username and password.-->
+                            </div>
+                        </form>
+                    </div>
+                    <div class="card-footer">
+                        <div class="d-flex justify-content-center links">
+                            Don't have any characters?<a id="createCharlink" onclick="createCharacter()">Create New</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div id="createAccount" class="container">
+            <div class="d-flex justify-content-center h-100">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Create Account</h3>
+                        <!--<div class="d-flex justify-content-end social_icon">
+                            <span><i class="fab fa-facebook-square"></i></span>
+                            <span><i class="fab fa-google-plus-square"></i></span>
+                            <span><i class="fab fa-twitter-square"></i></span>
+                        </div>-->
+                    </div>
+                    <div class="card-body">
+                        <form>
+                                
+                            <div class="input-group form-group">
+                                    <label for="email_address" class="col-md-4 col-form-label text-md-right">Username</label>
+                                <input id="createac_username" type="text" class="form-control" placeholder="" required>
+                            </div>
+
+                            <div class="input-group form-group">
+                                    <label for="email_address" class="col-md-4 col-form-label text-md-right">E-Mail</label>
+                                <input id="createac_email" type="text" class="form-control" placeholder="*Optional">
+                            </div>
+
+                            <div class="input-group form-group">
+                                    <label for="email_address" class="col-md-4 col-form-label text-md-right">Password</label>
+                                <input id="createac_pw1" type="password" class="form-control" placeholder="">
+                            </div>
+
+                            <div class="input-group form-group">
+                                    <label for="email_address" class="col-md-4 col-form-label text-md-right">Password</label>
+                                <input id="createac_pw2" type="password" class="form-control" placeholder="Verify Password">
+                            </div>
+
+                            <div class="register_warn_msgs">You do not need to provide email address but in case where you forget your password you will not be able to recover your account.</div>
+                            <div id="register_error_msgs">&nbsp;</div>
+
+                        </form>
+                    </div>
+                    <div class="card-footer">
+                        <div class="d-flex justify-content-end links">
+                                <div class="form-group botleft">
+                                    <input id="loginbtn" type="submit" value="Back" class="btn back_btn" onclick="backtologin()">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <input id="loginbtn" type="submit" value="Register" class="btn login_btn" onclick="register()">
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+<module id="character_creator_module">
+
+
+        <div id="characterCreator" class="container">
+                <div class="d-flex justify-content-left h-100">
+                    <div class="card fixcard">
+                        <div class="card-header">
+                            <h3>Character Creator</h3><br>
+                            
+                                <button type="button" class="btn btn-light"><i class="fas fa-restroom"></i></button>
+                                <div class="btn-group btn-group-toggle float-right" data-toggle="buttons">
+                                    <label class="btn btn-light active">
+                                        <input type="radio" name="options" id="option11" autocomplete="off" checked onchange="setGender(0)"> <i class="fas fa-mars"></i>
+                                    </label>
+                                    <label class="btn btn-light">
+                                        <input type="radio" name="options" id="option12" autocomplete="off" onchange="setGender(1)"> <i class="fas fa-venus"></i>
+                                    </label>
+                                </div>
+                            
+                        </div>
+                        <div class="card-body noscroll" style="padding:0px">
+                                
+
+
+                            <div id="controls_face" class="lisa_drop active">
+                                    <button type="button" class="btn btn-light text-left lisa_drop_btn" onclick="dropToggle('controls_face')"><i class="fas fa-chevron-up"></i> Face & Skin</button>
+                                <div id="characters_list">
+                                    <label for="father_face">Father Face</label>
+                                    <input type="range" class="custom-range" min="0" max="45" step="1" value="0" id="father_face" oninput="updatePedHeadBlendData()">
+                                    
+                                    <label for="father_skin">Father Skin</label>
+                                    <input type="range" class="custom-range" min="0" max="45" step="1" value="0" id="father_skin" oninput="updatePedHeadBlendData()">
+
+                                    <label for="mother_face">Mother Face</label>
+                                    <input type="range" class="custom-range" min="0" max="45" step="1" value="0" id="mother_face" oninput="updatePedHeadBlendData()">
+                                    
+                                    <label for="mother_skin">Mother Skin</label>
+                                    <input type="range" class="custom-range" min="0" max="45" step="1" value="0" id="mother_skin" oninput="updatePedHeadBlendData()">
+
+                                    <label for="face_mix">Face Mix</label>
+                                    <input type="range" class="custom-range" min="0" max="1" step="0.1" value="0" id="face_mix" oninput="updatePedHeadBlendData()">
+                                    
+                                    <label for="skin_mix">Skin Mix</label>
+                                    <input type="range" class="custom-range" min="0" max="1" step="0.1" value="0" id="skin_mix" oninput="updatePedHeadBlendData()">
+
+                                </div>
+                            </div>
+
+                            <div id="controls_facialfeatures" class="lisa_drop">
+                                    <button type="button" class="btn btn-light text-left lisa_drop_btn" onclick="dropToggle('controls_facialfeatures')"><i class="fas fa-chevron-up"></i> Face Features</button>
+                                <div id="characters_list">
+                                    <label for="eye_color">Eye Color</label>
+                                    <input type="range" class="custom-range" min="0" max="32" step="1" value="0" id="eye_color" oninput="updatePedEyeColor()">
+
+                                    <label for="nose_width">Nose Width</label>
+                                    <input type="range" class="custom-range" min="-1" max="1" step="0.1" value="0" id="nose_width" oninput="setPedFaceFeature()">
+
+                                    <label for="nose_heigth">Nose Heigth</label>
+                                    <input type="range" class="custom-range" min="-1" max="1" step="0.1" value="0" id="nose_heigth" oninput="setPedFaceFeature()">
+
+                                    <label for="nose_length">Nose Length</label>
+                                    <input type="range" class="custom-range" min="-1" max="1" step="0.1" value="0" id="nose_length" oninput="setPedFaceFeature()">
+
+                                    <label for="nose_bridge">Nose Bridge</label>
+                                    <input type="range" class="custom-range" min="-1" max="1" step="0.1" value="0" id="nose_bridge" oninput="setPedFaceFeature()">
+
+                                    <label for="nose_tip">Nose Tip</label>
+                                    <input type="range" class="custom-range" min="-1" max="1" step="0.1" value="0" id="nose_tip" oninput="setPedFaceFeature()">
+
+                                    <label for="nose_bridgeshaft">Nose Bridge Shaft</label>
+                                    <input type="range" class="custom-range" min="-1" max="1" step="0.1" value="0" id="nose_bridgeshaft" oninput="setPedFaceFeature()">
+
+                                    <label for="brow_heigth">Brow Heigth</label>
+                                    <input type="range" class="custom-range" min="-1" max="1" step="0.1" value="0" id="brow_heigth" oninput="setPedFaceFeature()">
+
+                                    <label for="brow_width">Brow Width</label>
+                                    <input type="range" class="custom-range" min="-1" max="1" step="0.1" value="0" id="brow_width" oninput="setPedFaceFeature()">
+
+                                    <label for="cheekb_heigth">Cheekbone Height</label>
+                                    <input type="range" class="custom-range" min="-1" max="1" step="0.1" value="0" id="cheekb_heigth" oninput="setPedFaceFeature()">
+
+                                    <label for="cheekb_width">Cheekbone Width</label>
+                                    <input type="range" class="custom-range" min="-1" max="1" step="0.1" value="0" id="cheekb_width" oninput="setPedFaceFeature()">
+
+                                    <label for="cheek_width">Cheek Width</label>
+                                    <input type="range" class="custom-range" min="-1" max="1" step="0.1" value="0" id="cheek_width" oninput="setPedFaceFeature()">
+
+                                    <label for="eyelids">Eyelids</label>
+                                    <input type="range" class="custom-range" min="-1" max="1" step="0.1" value="0" id="eyelids" oninput="setPedFaceFeature()">
+
+                                    <label for="lips">Lips</label>
+                                    <input type="range" class="custom-range" min="-1" max="1" step="0.1" value="0" id="lips" oninput="setPedFaceFeature()">
+
+                                    <label for="jaw_width">Jaw Width</label>
+                                    <input type="range" class="custom-range" min="-1" max="1" step="0.1" value="0" id="jaw_width" oninput="setPedFaceFeature()">
+
+                                    <label for="jaw_heigth">Jaw Heigth</label>
+                                    <input type="range" class="custom-range" min="-1" max="1" step="0.1" value="0" id="jaw_heigth" oninput="setPedFaceFeature()">
+
+                                    <label for="chin_length">Chin Length</label>
+                                    <input type="range" class="custom-range" min="-1" max="1" step="0.1" value="0" id="chin_length" oninput="setPedFaceFeature()">
+
+                                    <label for="chin_pos">Chin Position</label>
+                                    <input type="range" class="custom-range" min="-1" max="1" step="0.1" value="0" id="chin_pos" oninput="setPedFaceFeature()">
+
+                                    <label for="chin_width">Chin Width</label>
+                                    <input type="range" class="custom-range" min="-1" max="1" step="0.1" value="0" id="chin_width" oninput="setPedFaceFeature()">
+
+                                    <label for="chin_shape">Chin Shape</label>
+                                    <input type="range" class="custom-range" min="-1" max="1" step="0.1" value="0" id="chin_shape" oninput="setPedFaceFeature()">
+
+                                    <label for="neck_width">Neck Width</label>
+                                    <input type="range" class="custom-range" min="-1" max="1" step="0.1" value="0" id="neck_width" oninput="setPedFaceFeature()">
+
+                                    
+                                </div>
+                            </div>
+
+                            <div id="controls_headoverlay" class="lisa_drop">
+                                    <button type="button" class="btn btn-light text-left lisa_drop_btn" onclick="dropToggle('controls_headoverlay')"><i class="fas fa-chevron-up"></i> Facial & Body Features</button>
+                                <div id="characters_list">
+                                    <label for="blemish">Blemish</label>
+                                    <input type="range" class="custom-range" min="0" max="23" step="1" value="0" id="blemish" oninput="updatePedHeadOverlay()">
+
+                                    <label for="blemish_opacity">Blemish Opacity</label>
+                                    <input type="range" class="custom-range" min="0" max="1" step="0.1" value="0" id="blemish_opacity" oninput="updatePedHeadOverlay()">
+
+                                    <label for="facial_hair">Facial Hair</label>
+                                    <input type="range" class="custom-range" min="0" max="28" step="1" value="0" id="facial_hair" oninput="updatePedHeadOverlay()">
+
+                                    <label for="facial_hair_opacity">Facial Hair Opacity</label>
+                                    <input type="range" class="custom-range" min="0" max="1" step="0.1" value="0" id="facial_hair_opacity" oninput="updatePedHeadOverlay()">
+
+                                    <label for="facial_hair_color">Facial Hair Color</label>
+                                    <input type="range" class="custom-range" min="0" max="63" step="1" value="0" id="facial_hair_color" oninput="updatePedHeadOverlayColor()">
+
+                                    <label for="facial_hair_color2">Facial Hair Color2</label>
+                                    <input type="range" class="custom-range" min="0" max="63" step="1" value="0" id="facial_hair_color2" oninput="updatePedHeadOverlayColor()">
+
+                                    <label for="eyebrows">Eyebrows</label>
+                                    <input type="range" class="custom-range" min="0" max="33" step="1" value="0" id="eyebrows" oninput="updatePedHeadOverlay()">
+
+                                    <label for="eyebrow_opacity">Eyebrow Opacity</label>
+                                    <input type="range" class="custom-range" min="0" max="1" step="0.1" value="0" id="eyebrow_opacity" oninput="updatePedHeadOverlay()">
+
+                                    <label for="eyebrow_color">Eyebrow Color</label>
+                                    <input type="range" class="custom-range" min="0" max="63" step="1" value="0" id="eyebrow_color" oninput="updatePedHeadOverlayColor()">
+
+                                    <label for="eyebrow_color2">Eyebrow Color2</label>
+                                    <input type="range" class="custom-range" min="0" max="63" step="1" value="0" id="eyebrow_color2" oninput="updatePedHeadOverlayColor()">
+
+                                    <label for="age">Age</label>
+                                    <input type="range" class="custom-range" min="0" max="14" step="1" value="0" id="age" oninput="updatePedHeadOverlay()">
+
+                                    <label for="age_opacity">Age Opacity</label>
+                                    <input type="range" class="custom-range" min="0" max="1" step="0.1" value="0" id="age_opacity" oninput="updatePedHeadOverlay()">
+
+                                    <label for="makeup">Makeup</label>
+                                    <input type="range" class="custom-range" min="0" max="74" step="1" value="0" id="makeup" oninput="updatePedHeadOverlay()">
+
+                                    <label for="makeup_opacity">Makeup Opacity</label>
+                                    <input type="range" class="custom-range" min="0" max="1" step="0.1" value="0" id="makeup_opacity" oninput="updatePedHeadOverlay()">
+
+                                    <label for="makeup_color">Makeup Color</label>
+                                    <input type="range" class="custom-range" min="0" max="63" step="1" value="0" id="makeup_color" oninput="updatePedHeadOverlayColor()">
+
+                                    <label for="makeup_color2">Makeup Color2</label>
+                                    <input type="range" class="custom-range" min="0" max="63" step="1" value="0" id="makeup_color2" oninput="updatePedHeadOverlayColor()">
+
+                                    <label for="blush">Blush</label>
+                                    <input type="range" class="custom-range" min="0" max="6" step="1" value="0" id="blush" oninput="updatePedHeadOverlay()">
+
+                                    <label for="blush_opacity">Blush Opacity</label>
+                                    <input type="range" class="custom-range" min="0" max="1" step="0.1" value="0" id="blush_opacity" oninput="updatePedHeadOverlay()">
+
+                                    <label for="blush_color">Blush Color</label>
+                                    <input type="range" class="custom-range" min="0" max="63" step="1" value="0" id="blush_color" oninput="updatePedHeadOverlayColor()">
+
+                                    <label for="complexion">Complexion</label>
+                                    <input type="range" class="custom-range" min="0" max="11" step="1" value="0" id="complexion" oninput="updatePedHeadOverlay()">
+
+                                    <label for="complexion_opacity">Complexion Opacity</label>
+                                    <input type="range" class="custom-range" min="0" max="1" step="0.1" value="0" id="complexion_opacity" oninput="updatePedHeadOverlay()">
+
+                                    <label for="sundamage">Sun Damage</label>
+                                    <input type="range" class="custom-range" min="0" max="10" step="1" value="0" id="sundamage" oninput="updatePedHeadOverlay()">
+
+                                    <label for="sundamage_opacity">Sun Damage Opacity</label>
+                                    <input type="range" class="custom-range" min="0" max="1" step="0.1" value="0" id="sundamage_opacity" oninput="updatePedHeadOverlay()">
+
+                                    <label for="lipstick">Lipstick</label>
+                                    <input type="range" class="custom-range" min="0" max="9" step="1" value="0" id="lipstick" oninput="updatePedHeadOverlay()">
+
+                                    <label for="lipstick_opacity">Lipstick Opacity</label>
+                                    <input type="range" class="custom-range" min="0" max="1" step="0.1" value="0" id="lipstick_opacity" oninput="updatePedHeadOverlay()">
+
+                                    <label for="lipstick_color">Lipstick Color</label>
+                                    <input type="range" class="custom-range" min="0" max="63" step="1" value="0" id="lipstick_color" oninput="updatePedHeadOverlayColor()">
+
+                                    <label for="lipstick_color2">Lipstick Color2</label>
+                                    <input type="range" class="custom-range" min="0" max="63" step="1" value="0" id="lipstick_color2" oninput="updatePedHeadOverlayColor()">
+
+                                    <label for="freckles">Freckles</label>
+                                    <input type="range" class="custom-range" min="0" max="17" step="1" value="0" id="freckles" oninput="updatePedHeadOverlay()">
+
+                                    <label for="freckles_opacity">Freckles Opacity</label>
+                                    <input type="range" class="custom-range" min="0" max="1" step="0.1" value="0" id="freckles_opacity" oninput="updatePedHeadOverlay()">
+
+                                    <label for="chesthair">Chest Hair</label>
+                                    <input type="range" class="custom-range" min="0" max="16" step="1" value="0" id="chesthair" oninput="updatePedHeadOverlay()">
+
+                                    <label for="chesthair_opacity">Chest Hair Opacity</label>
+                                    <input type="range" class="custom-range" min="0" max="1" step="0.1" value="0" id="chesthair_opacity" oninput="updatePedHeadOverlay()">
+
+                                    <label for="bodyblemish">Body Blemishes</label>
+                                    <input type="range" class="custom-range" min="0" max="11" step="1" value="0" id="bodyblemish" oninput="updatePedHeadOverlay()">
+
+                                    <label for="bodyblemish_opacity">Body Blemishes Opacity</label>
+                                    <input type="range" class="custom-range" min="0" max="1" step="0.1" value="0" id="bodyblemish_opacity" oninput="updatePedHeadOverlay()">
+
+                                    <label for="addbodyblemish">Add Body Blemishes</label>
+                                    <input type="range" class="custom-range" min="0" max="1" step="1" value="0" id="addbodyblemish" oninput="updatePedHeadOverlay()">
+
+                                    <label for="addbodyblemish_opacity">Add Body Blemishes Opacity</label>
+                                    <input type="range" class="custom-range" min="0" max="1" step="0.1" value="0" id="addbodyblemish_opacity" oninput="updatePedHeadOverlay()">
+                                    
+                                </div>
+                            </div>
+
+                            <div id="controls_hair" class="lisa_drop">
+                                    <button type="button" class="btn btn-light text-left lisa_drop_btn" onclick="dropToggle('controls_hair')"><i class="fas fa-chevron-up"></i> Hair</button>
+                                <div id="characters_list">
+                                    <label for="hair_type">Hair Style</label>
+                                    <input type="range" class="custom-range" min="37" max="78" step="1" value="37" id="hair_type" oninput="updatePedHair()">
+
+                                    <label for="hair_color">Hair Color</label>
+                                    <input type="range" class="custom-range" min="0" max="78" step="1" value="0" id="hair_color" oninput="updatePedHair()">
+
+                                    <label for="hair_highl">Hair Highlight Color</label>
+                                    <input type="range" class="custom-range" min="0" max="78" step="1" value="0" id="hair_highl" oninput="updatePedHair()">
+                                    
+                                </div>
+                            </div>
+
+                            
+
+                            <div id="controls_choosename" class="lisa_drop">
+                                    <button type="button" class="btn btn-light text-left lisa_drop_btn" onclick="dropToggle('controls_choosename')"><i class="fas fa-chevron-up"></i> Choose Name</button>
+                                <div id="characters_list">
+                                    <div class="card-body">
+                                        
+                                        <label for="chosencharactername">Character Name</label>
+                                        <input type="text" class="form-control" id="chosencharactername" placeholder="Firstname Lastname" oninput="updateCharacterName()">
+                                        <br>
+                                        <div id="charname_error_msgs" class="alert alert-danger" role="alert" style="display: none">
+                                            error messages goes here...
+                                        </div>
+                                        <div id="charname_success_msgs" class="alert alert-success" role="alert" style="display: none">
+                                            success messages goes here...
+                                        </div>
+                                    </div>
+                                    <div class="card-footer text-center">
+                                        <button type="button" class="btn btn-light float-left" onclick="checkAvailCharName()">Check Availability</button>
+                                        <button type="button" class="btn btn-light float-right" onclick="createSaveCharacter()">Create Character</button>
+                                    </div>  
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                        <div class="card-footer">
+                                <input type="range" class="custom-range" min="0" max="360" step="1" id="charHeading" oninput="setCharHeading()">
+                                <button type="button" class="btn btn-light"><i class="fas fa-video"></i></button>
+                                &nbsp;
+                                <div class="btn-group btn-group-toggle float-right" data-toggle="buttons">
+                                    <label class="btn btn-light active">
+                                        <input type="radio" name="options" id="option1" autocomplete="off" checked onchange="setCamStyle('DEFAULT')"> <i class="fas fa-male"></i>
+                                    </label>
+                                    <label class="btn btn-light">
+                                        <input type="radio" name="options" id="option2" autocomplete="off" onchange="setCamStyle('HEAD')"> Head
+                                    </label>
+                                    <label class="btn btn-light">
+                                        <input type="radio" name="options" id="option3" autocomplete="off" onchange="setCamStyle('CHEST')"> Chest
+                                    </label>
+                                    <label class="btn btn-light">
+                                        <input type="radio" name="options" id="option4" autocomplete="off" onchange="setCamStyle('LEGS')"> Legs
+                                    </label>
+                                    <label class="btn btn-light">
+                                        <input type="radio" name="options" id="option5" autocomplete="off" onchange="setCamStyle('FEET')"> Feet
+                                    </label>
+                                </div>
+                                
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+</module>
+
+
+
+
+    <script src="./app.js"></script>
+</body>
+</html>

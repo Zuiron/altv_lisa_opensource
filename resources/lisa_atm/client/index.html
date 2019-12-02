@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ATM gui</title>
+
+    <script src="http://assets/lisa-assets/assets/fontawesome/js/all.min.js"></script>
+    <!--BOOTSTRAP-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="./style.css?v=1.0">
+    <script src="./app.js"></script>
+</head>
+<body id="body">
+    
+        <div class="container d-flex h-100">
+                <div class="row align-self-center w-100">
+                    <div class="col-7 mx-auto atm-bg">
+                        
+                            <div class="row top-pad">
+                                <div class="col-sm text-sm-left">
+                                    
+                                        <div class="col-sm text-sm-left">
+                                            <button type="button" class="btn col-sm btn-light text-sm-right" onclick="add(100)"><i class="fas fa-dollar-sign"></i> 100</button>
+                                        </div>
+                                        <div class="col-sm text-sm-left">
+                                            <button type="button" class="btn col-sm btn-light text-sm-right" onclick="add(20)"><i class="fas fa-dollar-sign"></i> 20</button>
+                                        </div>
+                                        <div class="col-sm text-sm-left">
+                                            <button type="button" class="btn col-sm btn-light text-sm-right" onclick="add(5)"><i class="fas fa-dollar-sign"></i> 5</button>
+                                        </div>
+                                        <div class="col-sm text-sm-left">
+                                            <button id="btn_depo" type="button" class="btn col-sm btn-light text-sm-right font-weight-bold" onclick="action('deposit')">Deposit</button>
+                                        </div>
+
+                                </div>
+                                <div class="col-6 text-sm-center">
+                                    <div><img id="logo" src="logo.png"></div>
+
+                                    <div class="row">
+                                        <div class="col-12"><div class="text-sm-left font-weight-bold">Bank Balance</div>
+                                            <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fas fa-university"></i></span>
+                                            </div>
+                                            <input id="bankBalance" type="text" class="form-control" aria-label="Amount (to the nearest dollar)" disabled>
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">.00</span>
+                                            </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm text-sm-right">
+                                    
+                                        <div class="col-sm text-sm-right">
+                                            <button type="button" class="btn col-sm btn-light text-sm-right" onclick="add(50)"><i class="fas fa-dollar-sign"></i> 50</button>
+                                        </div>
+                                        <div class="col-sm text-sm-right">
+                                            <button type="button" class="btn col-sm btn-light text-sm-right" onclick="add(10)"><i class="fas fa-dollar-sign"></i> 10</button>
+                                        </div>
+                                        <div class="col-sm text-sm-right">
+                                            <button type="button" class="btn col-sm btn-light text-sm-right" onclick="add(2)"><i class="fas fa-dollar-sign"></i> 2</button>
+                                        </div>
+                                        <div class="col-sm text-sm-right">
+                                            <button id="btn_draw" type="button" class="btn col-sm btn-dark text-sm-right font-weight-bold" onclick="action('withdraw')">Withdraw</button>
+                                        </div>
+
+                                </div>
+                            </div>
+
+
+                            <div class="row top-pad">
+                                <div class="col-3 text-sm-left">
+                                </div>
+
+                                <div class="col-8 text-sm-center">
+
+                                    
+                                    <div class="row">
+                                        <div class="col-9"><div class="text-sm-left font-weight-bold">Cash</div>
+                                            <div class="input-group mb-3">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
+                                                </div>
+                                                <input id="currentCash" type="text" class="form-control" data-toggle="popover" data-placement="top" data-content="ERROR" disabled>
+                                                <div class="input-group-append">
+                                                    <span class="input-group-text">.00</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-9"><div id="actionType" class="text-sm-left font-weight-bold">Withdraw</div>
+                                            <div class="input-group mb-3">
+                                                <div class="input-group-prepend">
+                                                    <span id="atypectrl" class="input-group-text"><i class="fas fa-dollar-sign"></i>&nbsp;<i class="fas fa-angle-left"></i>&nbsp;<i class="fas fa-university"></i></span>
+                                                </div>
+                                                <input id="actionInput" type="text" class="form-control" data-toggle="popover" data-placement="top" data-content="ERROR" disabled>
+                                                <div class="input-group-append">
+                                                    <span class="input-group-text">.00</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-2">
+                                                <button type="button" class="btn col-sm btn-light text-sm-center" onclick="numpad(1)">1</button>
+                                        </div>
+                                        <div class="col-2">
+                                                <button type="button" class="btn col-sm btn-light text-sm-center" onclick="numpad(2)">2</button>
+                                        </div>
+                                        <div class="col-2">
+                                                <button type="button" class="btn col-sm btn-light text-sm-center" onclick="numpad(3)">3</button>
+                                        </div>
+                                        <div class="col-3">
+                                                <button type="button" class="btn col-sm btn-danger text-sm-right font-weight-bold" onclick="cancel()">Cancel</button>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-2">
+                                                <button type="button" class="btn col-sm btn-light text-sm-center" onclick="numpad(4)">4</button>
+                                        </div>
+                                        <div class="col-2">
+                                                <button type="button" class="btn col-sm btn-light text-sm-center" onclick="numpad(5)">5</button>
+                                        </div>
+                                        <div class="col-2">
+                                                <button type="button" class="btn col-sm btn-light text-sm-center" onclick="numpad(6)">6</button>
+                                        </div>
+                                        <div class="col-3">
+                                                <button type="button" class="btn col-sm btn-warning text-sm-right font-weight-bold" onclick="clearInput()">Clear</button>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-2">
+                                                <button type="button" class="btn col-sm btn-light text-sm-center" onclick="numpad(7)">7</button>
+                                        </div>
+                                        <div class="col-2">
+                                                <button type="button" class="btn col-sm btn-light text-sm-center" onclick="numpad(8)">8</button>
+                                        </div>
+                                        <div class="col-2">
+                                                <button type="button" class="btn col-sm btn-light text-sm-center" onclick="numpad(9)">9</button>
+                                        </div>
+                                        <div class="col-3">
+                                                <button type="button" class="btn col-sm btn-success text-sm-right font-weight-bold" onclick="enter()">Enter</button>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-2">
+                                                <button type="button" class="btn col-sm btn-light text-sm-center">&nbsp;</button>
+                                        </div>
+                                        <div class="col-2">
+                                                <button type="button" class="btn col-sm btn-light text-sm-center" onclick="numpad(0)">0</button>
+                                        </div>
+                                        <div class="col-2">
+                                                <button type="button" class="btn col-sm btn-light text-sm-center">&nbsp;</button>
+                                        </div>
+                                        <div class="col-3">
+                                                <button type="button" class="btn col-sm btn-light text-sm-right">&nbsp;</button>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="col-3 text-sm-right">
+                                </div>
+                            </div>
+                            
+
+                    </div>
+                </div>
+            </div>
+
+</body>
+</html>

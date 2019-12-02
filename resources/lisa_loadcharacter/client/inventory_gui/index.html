@@ -1,0 +1,353 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>LifeInSanAndreas Inventory GUI</title>
+  <meta name="description" content="LifeInSanAndreas Inventory GUI">
+  <meta name="author" content="Zuiron @ lifeinsanandreas.com">
+
+  <script src="http://assets/lisa-assets/assets/fontawesome/js/all.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <!--BOOTSTRAP-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+  
+
+  <link rel="stylesheet" href="./style.css?v=1.0">
+</head>
+
+<body id="body">
+
+
+        <div id="lisa_contextmenu" class="menu">
+            <ul id="lisa_contextmenucontent" class="menu-options">
+                <!--
+                <li id="context_use" class="menu-option">Use</li>
+                <li id="context_equip" class="menu-option">Equip</li>
+                <li id="context_unequip" class="menu-option">Unequip</li>
+                <li id="context_drop" class="menu-option">Drop</li>
+                -->
+            </ul>
+        </div>
+
+
+        <div id="tooltiplisa">this is a test...</div>
+
+
+    <div id="inventory-container" class="container-fluid">
+
+        <div class="row" style="height: 100%;">
+            <div id="charinvennearbypane" class="col-sm">
+            <!--Nearby Items & Character Inventory-->
+
+
+            <!--Nearby Items-->
+            <div class="row lisa-short">
+                <div class="col-sm">
+
+                    <div class="inventorybox">
+                        <div class="boxtitle">Nearby Items</div>
+                        <div AllowDrop="true" ondrop="drop(event)" ondragover="dragover(event)" class="itemlistcontainer itemlist-short droppable" id="nearby_items_container"> <!-- THIS is where we inject item construction -->
+
+                            
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <!--Character Inventory-->
+            <div class="row lisa-semilong">
+                <div class="col-sm">
+
+                    <div class="inventorybox">
+                        <div class="boxtitle">Character Inventory</div>
+                        <div class="charinvensorting">
+                            <i class="material-icons" onclick="setCharacterInventoryViewMode('icons')">apps</i>
+                            <i class="material-icons" onclick="setCharacterInventoryViewMode('1x')">view_headline</i>
+                            <i class="material-icons" onclick="setCharacterInventoryViewMode('2x')">view_stream</i>
+                            <i class="material-icons" onclick="setCharacterInventoryViewMode('3x')">view_column</i>
+                        </div>
+                        <!-- rightclickitem(itemid, use, equip, unequip, drop) -->
+                        <div AllowDrop="true" ondrop="drop(event)" ondragover="dragover(event)" class="itemlistcontainer itemlist-long droppable" id="character_items_container"> <!-- THIS is where we inject item construction -->
+                            <!-- this is where items are stored. -->
+                        </div>
+                        <div class="bottom_inven_info">
+
+                            <div class="invinfo_moneyother_container">
+                                <div><i class="fas fa-dollar-sign"></i> <lisa id="actual_money_value">ERROR 00.00</lisa></div>
+                                <div><i class="fas fa-box"></i> <lisa id="actual_slots_value">ERROR 0 / 00</lisa></div>
+                            </div>
+
+                            <div class="invinfo_weightbar">
+                                <div class="weightbar_text"><i class="fas fa-weight-hanging"></i> Inventory Weight: 3.5 kg / 60.0 kg</div>
+                                <div id="weightbar" style="width: 50%"></div>
+                            </div>
+
+                            <div class="invinfo_trashcan"><i class="far fa-trash-alt"></i></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+
+
+            </div>
+            <div id="charequipane" class="col-sm">
+            <!--Character selection wheel & Character Equipment-->
+
+            <!--middle menu select wheel-->
+            <div class="row lisa-extrashort">
+                <div class="col-sm">
+
+
+                    <div class="inventorybox">
+                        <div class="row padtop">
+                            <div class="col-2 text-right">
+                                <i class="material-icons arrows" onclick="nextMidPane('left')">arrow_back_ios</i>
+                            </div>
+                            <div class="col-8 text-center charequipanetitle">
+                                Character Equipment
+                            </div>
+                            <div class="col-2 text-left">
+                                <i class="material-icons arrows" onclick="nextMidPane('right')" style="transform: rotate(180deg);">arrow_back_ios</i>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm text-center charequipaneicons">
+                                <i class="material-icons arrows">home</i>
+                                <i class="material-icons arrows">person_add</i>
+                                <i class="material-icons arrows">pets</i>
+                                <i class="material-icons arrows">settings</i>
+                                <i class="material-icons arrows active">person_pin</i>
+                                <i class="material-icons arrows">work</i>
+                                <i class="material-icons arrows">business</i>
+                                <i class="material-icons arrows">directions_car</i>
+                                <i class="material-icons arrows">bug_report</i>
+                            </div>
+                        </div>
+
+                    <!--
+                        <module id="moduleCharacterEquipment">
+                            <div class="row">
+                                <div class="col-4 text-center">
+                                    L
+                                </div>
+                                <div class="col-4 text-center">
+                                    M
+                                </div>
+                                <div class="col-4 text-center">
+                                    R
+                                </div>
+                            </div>
+                        </module>
+                    -->
+
+                    </div>
+
+
+                </div>
+            </div>
+
+            <!--
+                PED_VARIATION_FACE = 0,                 -not used i think (face but we use head blend data?)
+                PED_VARIATION_HEAD = 1,                 --Mask
+                PED_VARIATION_HAIR = 2,                 -hair
+                PED_VARIATION_TORSO = 3,                -not used, think we set torso based on torso2 item. ignore this.
+                PED_VARIATION_LEGS = 4,                 --Legs
+                PED_VARIATION_HANDS = 5,                --Bag
+                PED_VARIATION_FEET = 6,                 --Shoes
+                PED_VARIATION_EYES = 7,                 --Neck - accesories, necklace, etc.
+                PED_VARIATION_ACCESSORIES = 8,          -undershirt, ignore, we set this based on item torso2.
+                PED_VARIATION_TASKS = 9,                -body armor, we dont use.
+                PED_VARIATION_TEXTURES = 10,            -ignore
+                PED_VARIATION_TORSO2 = 11               --Top
+
+                Hats (PropID 0)                         -- we use, 12
+                Glasses (PropID 1)                      -- we use, 13
+                Ears (PropID 2)                         -- we use, 14
+                Watches (PropID 6)                      -- we use, 15
+                Bracelets (PropID 7)                    -- we use, 16
+            -->
+
+            <module id="moduleCharacterEquipment">
+                <div class="row lisa-extrashort">
+                    <div class="col-sm">
+                        <div class="inventorybox">
+
+                            <div class="row">
+                                <div class="col-4 text-left">
+                                    <b class="eqslotname">Mask</b>
+                                    <div AllowDrop="true" ondrop="drop(event)" ondragover="dragover(event)" class="eqicon eqitemdroparea-left droppable" id="char_equip_slot-1"> <!-- THIS is where we inject item construction -->
+                                        <!-- this is where items are stored. -->
+                                    </div>
+                                </div>
+                                <div class="col-4 text-center">
+                                    <!--<b class="eqslotname">Hair</b>
+                                    <div AllowDrop="true" ondrop="drop(event)" ondragover="dragover(event)" class="eqicon eqitemdroparea-center droppable" id="char_equip_slot-2"> <!-- THIS is where we inject item construction -->
+                                        <!-- this is where items are stored. --><!--
+                                    </div>-->
+                                    <b class="eqslotname">Glasses</b>
+                                    <div AllowDrop="true" ondrop="drop(event)" ondragover="dragover(event)" class="eqicon eqitemdroparea-center droppable" id="char_equip_slot-13"> <!-- THIS is where we inject item construction -->
+                                        <!-- this is where items are stored. -->
+                                    </div>
+                                </div>
+                                <div class="col-4 text-right">
+                                    <b class="eqslotname">Hat</b>
+                                    <div AllowDrop="true" ondrop="drop(event)" ondragover="dragover(event)" class="eqicon eqitemdroparea-right droppable" id="char_equip_slot-12"> <!-- THIS is where we inject item construction -->
+                                        <!-- this is where items are stored. -->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-4 text-left">
+                                    <b class="eqslotname">Neck</b>
+                                    <div AllowDrop="true" ondrop="drop(event)" ondragover="dragover(event)" class="eqicon eqitemdroparea-left droppable" id="char_equip_slot-7"> <!-- THIS is where we inject item construction -->
+                                        <!-- this is where items are stored. -->
+                                    </div>
+                                </div>
+                                <div class="col-4 text-center"> <!-- this should be here however, NOT able to be unEquipped!!! -->
+                                    <!--<b class="eqslotname">Glasses</b>
+                                    <div AllowDrop="true" ondrop="drop(event)" ondragover="dragover(event)" class="eqicon eqitemdroparea-center droppable" id="char_equip_slot-13"> <!-- THIS is where we inject item construction -->
+                                        <!-- this is where items are stored. --><!--
+                                    </div>-->
+                                </div>
+                                <div class="col-4 text-right">
+                                    <b class="eqslotname">Bracelet</b>
+                                    <div AllowDrop="true" ondrop="drop(event)" ondragover="dragover(event)" class="eqicon eqitemdroparea-right droppable" id="char_equip_slot-16"> <!-- THIS is where we inject item construction -->
+                                        <!-- this is where items are stored. -->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-4 text-left">
+                                    <b class="eqslotname">Top</b>
+                                    <div AllowDrop="true" ondrop="drop(event)" ondragover="dragover(event)" class="eqicon eqitemdroparea-left droppable" id="char_equip_slot-11"> <!-- THIS is where we inject item construction -->
+                                        <!-- this is where items are stored. -->
+                                    </div>
+                                </div>
+                                <div class="col-4 text-center">
+                                    
+                                </div>
+                                <div class="col-4 text-right">
+                                    <b class="eqslotname">Legs</b>
+                                    <div AllowDrop="true" ondrop="drop(event)" ondragover="dragover(event)" class="eqicon eqitemdroparea-right droppable" id="char_equip_slot-4"> <!-- THIS is where we inject item construction -->
+                                        <!-- this is where items are stored. -->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-4 text-left">
+                                    <b class="eqslotname">Ears</b>
+                                    <div AllowDrop="true" ondrop="drop(event)" ondragover="dragover(event)" class="eqicon eqitemdroparea-left droppable" id="char_equip_slot-14"> <!-- THIS is where we inject item construction -->
+                                        <!-- this is where items are stored. -->
+                                    </div>
+                                </div>
+                                <div class="col-4 text-center">
+                                    
+                                </div>
+                                <div class="col-4 text-right">
+                                    <b class="eqslotname">Shoes</b>
+                                    <div AllowDrop="true" ondrop="drop(event)" ondragover="dragover(event)" class="eqicon eqitemdroparea-right droppable" id="char_equip_slot-6"> <!-- THIS is where we inject item construction -->
+                                        <!-- this is where items are stored. -->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-4 text-left">
+                                    <b class="eqslotname">Watch</b>
+                                    <div AllowDrop="true" ondrop="drop(event)" ondragover="dragover(event)" class="eqicon eqitemdroparea-left droppable" id="char_equip_slot-15"> <!-- THIS is where we inject item construction -->
+                                        <!-- this is where items are stored. -->
+                                    </div>
+                                </div>
+                                <div class="col-4 text-center">
+                                    
+                                </div>
+                                <div class="col-4 text-right">
+                                    <b class="eqslotname">Bag</b>
+                                    <div AllowDrop="true" ondrop="drop(event)" ondragover="dragover(event)" class="eqicon eqitemdroparea-right droppable" id="char_equip_slot-5"> <!-- THIS is where we inject item construction -->
+                                        <!-- this is where items are stored. -->
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </module>
+
+ 
+
+            </div>
+            <div id="interactionpane" class="col-sm">
+            <!--Interaction, ex vehicle equipped and vehicle inventory-->
+
+                <!--wrap in module-->
+                <module id="interaction_panel"> 
+
+                <!--Interaction Information Pane, target info?-->
+                    <div class="row lisa-short">
+                        <div class="col-sm">
+
+                            <div class="inventorybox">
+                                <div class="boxtitle">Target Information</div>
+                                some info here
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <!--Interaction Inventory-->
+                    <div class="row lisa-semilong">
+                        <div class="col-sm">
+
+                            <div class="inventorybox">
+                                <div class="boxtitle">Target Inventory</div>
+                                <div class="charinvensorting">
+                                    <i class="material-icons" onclick="setInteractionInventoryViewMode('icons')">apps</i>
+                                    <i class="material-icons" onclick="setInteractionInventoryViewMode('1x')">view_headline</i>
+                                    <i class="material-icons" onclick="setInteractionInventoryViewMode('2x')">view_stream</i>
+                                    <i class="material-icons" onclick="setInteractionInventoryViewMode('3x')">view_column</i>
+                                </div>
+                                <!-- rightclickitem(itemid, use, equip, unequip, drop) -->
+                                <div AllowDrop="true" ondrop="drop(event)" ondragover="dragover(event)" class="itemlistcontainer itemlist-long droppable" id="interaction_items_container"> <!-- THIS is where we inject item construction -->
+                                    <!-- this is where items are stored. -->
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </module>
+
+
+
+
+
+            </div>
+        </div>
+      
+    </div>
+
+    <script src="./app.js"></script>
+</body>
+</html>

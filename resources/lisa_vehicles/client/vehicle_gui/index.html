@@ -1,0 +1,89 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>LifeInSanAndreas Inventory GUI</title>
+  <meta name="description" content="LifeInSanAndreas Inventory GUI">
+  <meta name="author" content="Zuiron @ lifeinsanandreas.com">
+
+  <script src="http://assets/lisa-assets/assets/fontawesome/js/all.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <!--BOOTSTRAP-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+  
+
+  <link rel="stylesheet" href="./style.css?v=1.0">
+</head>
+
+<body id="body">
+<!--
+    <div id="fuelmeter">fuel level</div>
+    <div id="speedometer2">km/h</div>
+
+    <div id="km_travel">
+        <b id="kmdist">0</b> Km traveled.
+    </div>
+
+    <div id="km_traveltotal">
+        <b id="kmdisttotal">0</b> Km odometer.
+    </div>
+-->
+    <!--<div id="speedocontainer">
+        <div id="blinker_L">
+            <i class="far fa-arrow-alt-circle-left"></i>
+        </div>
+        <div id="blinker_R">
+            <i class="far fa-arrow-alt-circle-right"></i>
+        </div>-->
+        
+        <!--<div id="sp_fuel">
+            <i class="fas fa-gas-pump"></i>
+            <b id="fuel">10 l / 75 l</b>
+        </div>-->
+        <!--<div id="sp_speed">
+            <i class="fas fa-tachometer-alt"></i>
+            <b id="speed">300 km/h</b>
+        </div>-->
+        <!--<div id="sp_odometer">
+            <i class="fas fa-route"></i>
+            <b id="kmdisttotal">000000</b>
+        </div>-->
+    <!--</div>-->
+
+    <div id="sp_speed_new" class="bgpro">
+        <i class="fas fa-tachometer-alt"></i>
+        <module id="speed">300 km/h</module>
+    </div>
+
+    <div id="sp_fuel_new" class="bgpro">
+        <i class="fas fa-gas-pump"></i>
+        <module id="fuel">10 / 75 ltr</module>
+    </div>
+
+    <div id="sp_odometer_new" class="bgpro">
+        <i class="fas fa-route"></i>
+        <module id="kmdisttotal">000000</module>
+    </div>
+
+    <div id="check_engine">
+        <img id="warn" src="./icons/warn.png" class="veh-indicator-img bgpro">
+        <img id="engwarn" src="./icons/enginewarn.png" class="veh-indicator-img bgpro">
+        <img id="engwarnred" src="./icons/enginewarnred.png" class="veh-indicator-img bgpro">
+        <img id="opndrs" src="./icons/opendoors.png" class="veh-indicator-img bgpro">
+        <img id="seatbelt" src="./icons/seatbelt.png" class="veh-indicator-img bgpro">
+        <img id="lowfuel" src="./icons/fuelwarn.png" class="veh-indicator-img bgpro">
+        <img id="highbeams" src="./icons/highbeam.png" class="veh-indicator-img bgpro">
+    </div>
+
+    <script src="./app.js"></script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>LifeInSanAndreas Inventory GUI</title>
+  <meta name="description" content="LifeInSanAndreas Inventory GUI">
+  <meta name="author" content="Zuiron @ lifeinsanandreas.com">
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <!--BOOTSTRAP-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+  <script src="http://assets/lisa-assets/assets/fontawesome/js/all.min.js"></script>
+
+  <link rel="stylesheet" href="./style.css?v=1.0">
+</head>
+
+<body id="body">
+
+    <div id="energy">
+        <div class="icon"><i class="fas fa-bolt"></i></div>
+        <div class="progress">
+            <div id="energy_bar" class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><!--25%--></div>
+        </div>
+    </div>
+
+    <div id="hunger">
+            <div class="icon"><i class="fas fa-utensils"></i></div>
+        <div class="progress">
+            <div id="hunger_bar" class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><!--25%--></div>
+        </div>
+    </div>
+
+    <div id="thirst">
+            <div class="icon"><i class="fas fa-wine-glass-alt"></i></div>
+        <div class="progress">
+            <div id="thirst_bar" class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><!--25%--></div>
+        </div>
+    </div>
+
+    <div id="comp_addr_container">
+        <div class="comp_addr">
+            <i class="far fa-compass"></i> &nbsp;<div id="compass_actual">NSW</div> &nbsp;<div id="compass_1">Elgin Ave, Del Perro Fwy, Textile City</div>
+        </div>
+    </div>
+
+    <div id="footer">
+        <div id="footer_1">Life in San Andreas - Alpha - lifeinsanandreas.com</div>
+    </div>
+
+    <script src="./app.js"></script>
+</body>
+</html>
