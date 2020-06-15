@@ -7,7 +7,7 @@ function drawnameplate(x, y, z){
     const [alwaysempty, screen_x, screen_y] = game.getActiveScreenResolution();
     let [bol, _x, _y] = game.getScreenCoordFromWorldCoord(x,y,z);
 
-    const camCord = game.getGameplayCamCoords();
+    const camCord = game.getFinalRenderedCamCoord();
     const dist = game.getDistanceBetweenCoords(camCord.x,camCord.y,camCord.z, x, y, z, 1)
     if (dist > 20) { nameplate.emit('updatenameplate', 0, 0, false); return; }
 
